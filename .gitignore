@@ -1,0 +1,44 @@
+*.vagrant
+*.DS_Store
+learn-vault/*
+HCP/*
+Benchmarking/*
+
+#Enterprise License
+license.hclic
+
+
+*__pycache__*
+*pyc
+
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# .tfvars files
+*.tfvars
+
+# no creds
+*.pem
+*.key
+id_rsa.pub
+id_rsa
+id_dsa.pub
+id_dsa
+*.aws
+
+# terraformrc file
+terraform.rc
+.terraformrc
+
+# packer.pub
+tf-packer
+tf-packer.pub
+
+
+
+

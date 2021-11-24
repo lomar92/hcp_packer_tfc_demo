@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create a Golden Image Pipeline with HCP Packer and Terraform Cloud</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/fonts.css') }}">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body>
+    <!-- the hashicorp bar -->
+      <table border="0" width="100%" bgcolor="#000"><tr height="48"><td><table border="0" width="100%"><tr height="11"><td> </td></tr><tr><td>
+        <a href="https://www.hashicorp.com"><div data-testid="root" class="hashicorp-logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIgAAAAwCAYAAADKIzJKAAAAMElEQVR4Ae3BMQEAAADCIPunXgsvYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcBGYwAAECm5clAAAAAElFTkSuQmCC" class="svg-sizer" alt="" role="presentation" width="32"><svg width="105" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35.716 19.035v-5.637h-4.954v5.637h-2.528V5.637h2.528v5.51h4.954V5.663h2.528V19.06h-2.528v-.025zm11.779 0h-1.997l-.177-.657a5.356 5.356 0 01-2.906.859c-1.795 0-2.553-1.213-2.553-2.907 0-1.997.859-2.755 2.856-2.755h2.35v-1.037c0-1.087-.303-1.466-1.87-1.466-.91 0-1.82.101-2.705.278l-.303-1.87a12.538 12.538 0 013.362-.456c3.084 0 3.968 1.087 3.968 3.54l-.025 6.47zm-2.452-3.69H43.25c-.81 0-1.037.227-1.037.96 0 .682.228.986.986.986.657 0 1.29-.177 1.845-.506v-1.44zm7.204 3.892a12.022 12.022 0 01-3.387-.556l.354-1.87c.96.277 1.921.404 2.907.429 1.087 0 1.238-.253 1.238-.986 0-.607-.126-.91-1.718-1.29-2.402-.58-2.68-1.187-2.68-3.083 0-1.972.86-2.831 3.665-2.831.986 0 1.972.126 2.933.328l-.253 1.947a19.261 19.261 0 00-2.68-.278c-1.061 0-1.238.252-1.238.834 0 .784.05.834 1.39 1.188 2.73.733 3.008 1.087 3.008 3.084 0 1.921-.581 3.084-3.539 3.084zm10.844-.202V12.21c0-.531-.227-.784-.784-.784-.606 0-1.668.354-2.553.834v6.775h-2.451V5.258l2.452-.354v5.081a8.397 8.397 0 013.563-.935c1.618 0 2.2 1.137 2.2 2.907v7.103H63.09v-.025zm4.247-11.173V5.03h2.451v2.832h-2.451zm0 11.173V9.252h2.451v9.783h-2.451zm4.17-9.707c0-2.452 1.416-3.868 4.752-3.868 1.213 0 2.452.152 3.64.455l-.278 2.174a20.415 20.415 0 00-3.286-.354c-1.744 0-2.3.607-2.3 2.023v5.156c0 1.416.556 2.023 2.3 2.023a20.394 20.394 0 003.286-.329l.278 2.2a14.652 14.652 0 01-3.64.454c-3.336 0-4.752-1.415-4.752-3.867V9.328zm13.422 9.909c-3.362 0-4.272-1.845-4.272-3.868v-2.477c0-2.022.91-3.868 4.272-3.868s4.272 1.846 4.272 3.868v2.477c-.025 2.023-.935 3.868-4.272 3.868zm0-8.09c-1.314 0-1.795.582-1.795 1.694v2.63c0 1.112.506 1.693 1.795 1.693 1.29 0 1.795-.581 1.795-1.694v-2.629c0-1.112-.506-1.693-1.795-1.693zm10.768.153c-.91.404-1.77.884-2.603 1.415v6.32h-2.452V9.252h2.073l.151 1.087c.809-.53 1.668-.96 2.578-1.29l.253 2.25zM105 15.8c0 2.173-.961 3.462-3.235 3.462-.885 0-1.745-.1-2.604-.278v4.045l-2.452.328V9.252h1.947l.252.834c.885-.657 1.972-1.036 3.084-1.011 1.972 0 3.008 1.163 3.008 3.387V15.8zm-5.864 1.086c.708.152 1.441.253 2.174.253.884 0 1.238-.43 1.238-1.315v-3.438c0-.808-.303-1.238-1.213-1.238a3.542 3.542 0 00-2.2.885v4.853zM9.656 0L0 5.561V18.96l3.64 2.098V7.659l6.016-3.463V0z" fill="#fff"></path><path d="M13.523 0v10.668H9.656V6.674L6.04 8.772v13.675l3.615 2.099V13.902h3.867v3.944l3.615-2.073V2.098L13.523 0z" fill="#fff"></path><path d="M13.523 24.546l9.656-5.587V5.587l-3.64-2.099v13.373l-6.016 3.488v4.197z" fill="#fff"></path></svg></div></a>
+      </td></tr></table></td></tr></table>
+
+    <!-- super simple nav bar -->
+<table width=100%><tr><td width=5%></td><td>
+  <table border="0" width="100%"><tr height="9"><td> </td></tr><tr><td>
+    <div class="g-svg"><a href="https://www.packer.io" data-testid="a-raw" class="style_root__V86HN" title="packer"><div><svg width="230" height="88" viewBox="0 0 230 88" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M75.84 23.69h15.73c9.31 0 12.76 3.81 12.76 10.89v5.5c0 7-3.75 10.83-13.13 10.83h-7.74V64h-7.62V23.69zm15.3 6.72h-7.68V44.2h7.68c4.3 0 5.57-1.58 5.57-4.9v-4.11c0-3.33-1.41-4.78-5.57-4.78zM130.09 64h-6l-.54-2a16.153 16.153 0 01-8.77 2.6c-5.39 0-7.68-3.69-7.68-8.77 0-6 2.6-8.29 8.58-8.29h7.08v-3.1c0-3.27-.91-4.42-5.62-4.42a41.477 41.477 0 00-8.17.91l-.91-5.62a38.372 38.372 0 0110.1-1.39c9.26 0 12 3.26 12 10.64L130.09 64zm-7.38-11.12h-5.41c-2.42 0-3.09.66-3.09 2.9 0 2 .67 3 3 3a11.571 11.571 0 005.56-1.51l-.06-4.39zm11.79.39v-8c0-7.93 3.45-11.31 12.7-11.31 2.437.003 4.862.353 7.2 1.04l-.91 6c-2-.492-4.05-.754-6.11-.78-4.23 0-5.5 1.27-5.5 4.9v8.16c0 3.63 1.27 4.9 5.5 4.9a24.58 24.58 0 006.11-.79l.91 6a24.117 24.117 0 01-7.2 1.09c-9.25.1-12.7-3.29-12.7-11.21zM159.061 64V22.49l7.37-1V64h-7.37zm25-29.45l-8.61 14.55 9 14.87h-8.11l-8.88-14.87 8.41-14.58 8.19.03zm15.389 23.98a30.714 30.714 0 009-1.39l1.15 5.56a31.558 31.558 0 01-10.82 1.88c-9.26 0-12.46-4.3-12.46-11.37v-7.8c0-6.23 2.78-11.49 12.22-11.49 9.44 0 11.55 5.5 11.55 11.85v6.29h-16.38v1.51c0 3.57 1.27 4.96 5.74 4.96zm-5.74-12.4h9.37v-1.45c0-2.78-.84-4.72-4.47-4.72s-4.9 1.94-4.9 4.72v1.45zm36.101-5.44a58.126 58.126 0 00-7.8 4.29V64h-7.38V34.52h6.23l.48 3.27a32.936 32.936 0 017.75-3.87l.72 6.77z" fill="#000"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M0 16.27l22.69 13.11v48.34L0 64.61V16.27z" fill="#02A8EF"></path><path d="M33.92 21.92L9.3 7.72v9.86l16.77 9.68v29.6l7.89 4.53c4.89 2.82 8.88 1.13 8.88-3.75V35.92c-.04-4.92-4.03-11.18-8.92-14z" fill="#02A8EF"></path></svg></div>
+  </td></tr></table>
+</td>
+
+</td><td width=5%></td></tr></table>
+</section>
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>HashiCorp HCP Packer</strong> <br> This is a demonstration of <a href="https://learn.hashicorp.com/tutorials/packer/golden-image-with-hcp-packer?in=packer/cloud-production">Build a Golden Image Pipeline with HCP Packer</a> using the <a href="https://learn.hashicorp.com/collections/packer/aws-get-started">Packer Binary</a>
+    </p>
+  </div>
+</footer>
+</body>
+
+<section class="hero">
+    <div class="hero-body">
+      <div>
+        <h1 class="title">
+          Create a Golden Image Pipeline with HCP Packer and Terraform Cloud
+        </h1>
+        <p class="body"><font color="#363942">
+          <br><p>
+          <a href="https://learn.hashicorp.com/tutorials/packer/golden-image-with-hcp-packer?in=packer/cloud-production/index.html"></a>
+          <p align="center"><br><img src="/static/golden_image_pipeline.png" width=1372 height=736><br></p>
+          <br>
+          The primary use case of HCP Packer is to have a Central Packer Image Repository. Build up your own Automated Machine Image pipeline.
+          <p><br>
+          </font></p>
+        </div>
+        </p>
+      </div>
+    </section>
+</html>
