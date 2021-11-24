@@ -3,5 +3,5 @@ This is demo, showing how to integrate HCP Packer with Terraform Cloud and how i
 
 # What is HCP Packer?
 
-# Prerequisites 
+# Prerequisites!
 
