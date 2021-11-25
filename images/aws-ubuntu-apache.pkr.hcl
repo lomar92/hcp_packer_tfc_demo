@@ -60,7 +60,6 @@ build {
       "target-use" = "Website",
       "apache"     = "v2.0.",
       "os"         = "ubuntu_1804",
-      "team"       = "dev/test",
     }
   }
 
@@ -74,6 +73,7 @@ build {
       "sudo chown -R ubuntu:ubuntu /var/www/html",
       "sudo apt -y install cowsay",
       "cowsay -f tux I am not a Cow!",
+      "apache2 -v"
     ]
   }
   provisioner "file" {
@@ -81,4 +81,3 @@ build {
     destination = "/var/www/html"
   }
 }
-
