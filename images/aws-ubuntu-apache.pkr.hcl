@@ -7,7 +7,6 @@ packer {
   }
 }
 
-
 variable "ami_prefix" {
   type    = string
   default = "apache_v2"
@@ -58,7 +57,6 @@ build {
         EOT
     labels = {
       "target-use" = "Website",
-      "apache"     = "v2.0.",
       "os"         = "ubuntu_1804",
     }
   }
@@ -72,7 +70,7 @@ build {
       "sudo systemctl start apache2",
       "sudo chown -R ubuntu:ubuntu /var/www/html",
       "sudo apt -y install cowsay",
-      "cowsay -f tux I am not a Cow!",
+      "cowsay -f tux Look after your Apache version!",
       "apache2 -v"
     ]
   }
