@@ -36,7 +36,7 @@ source "amazon-ebs" "eu-central-1" {
 }
 
 build {
-  name = "learn-packer"
+  name = "Apache_Image"
   sources = [
     "source.amazon-ebs.eu-central-1"
   ]
@@ -48,6 +48,8 @@ build {
         EOT
     labels = {
       "target-use" = "webservice",
+      "apache" = "v2.0.",
+      "os" = "ubuntu",
       "environment" = "dev/test",
     }
   }
