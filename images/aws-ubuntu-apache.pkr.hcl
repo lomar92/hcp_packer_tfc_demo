@@ -18,8 +18,12 @@ variable "region" {
   default = "eu-central-1"
 }
 
+locals {
+  timestamp = regex_replace(timestamp(), "[- TZ:]", "")
+}
+
 source "amazon-ebs" "eu-central-1" {
-  ami_name      = var.ami_prefix
+  ami_name      = "${var.ami_prefix}-${local.timestamp}"
   instance_type = "t2.micro"
   region        = var.region
 
@@ -33,6 +37,12 @@ source "amazon-ebs" "eu-central-1" {
     owners      = ["099720109477"]
   }
   ssh_username = "ubuntu"
+  tags = {
+    Name = "lomar"
+  }
+  snapshot_tags = {
+    Name = "lomar"
+  }
 }
 
 build {
@@ -44,13 +54,13 @@ build {
   hcp_packer_registry {
     bucket_name = "apache"
     description = <<EOT
-    This image is a Apache Web Service running on ubuntu
+    This image is a Apache Web Service running on ubuntu 18.04
         EOT
     labels = {
-      "target-use" = "webservice",
-      "apache" = "v2.0.",
-      "os" = "ubuntu",
-      "environment" = "dev/test",
+      "target-use" = "Website",
+      "apache"     = "v2.0.",
+      "os"         = "ubuntu_1804",
+      "team"       = "dev/test",
     }
   }
 
