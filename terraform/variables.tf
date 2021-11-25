@@ -6,12 +6,19 @@ variable "environment" {
   default     = "test"
 }
 
-variable "region" {
-  description = "The region where the resources are created."
+variable "bucket" {
+  description = "HCP Packer Bucket"
+  default     = "apache"
 }
 
-variable "AMI" {
-  description = "The Packer Image for your WebApp."
+variable "channel" {
+  description = "HCP Packer Channel"
+  default     = "production"
+}
+
+variable "region" {
+  description = "The region where the resources are created."
+  default     = "eu-central-1"
 }
 
 variable "address_space" {

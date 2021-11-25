@@ -2,6 +2,22 @@ provider "aws" {
   region = var.region
 }
 
+#Specify HCP Provider and HCP Packer Iteration
+provider "hcp" {
+}
+
+data "hcp_packer_iteration" "apache" {
+  bucket_name = var.bucket
+  channel     = var.channel
+}
+
+data "hcp_packer_image" "apache-image" {
+  bucket_name    = var.bucket
+  cloud_provider = "aws"
+  region         = var.region
+  iteration_id   = data.hcp_packer_iteration.apache.ulid
+}
+
 resource "aws_vpc" "hashitalk" {
   cidr_block           = var.address_space
   enable_dns_hostnames = true
@@ -83,7 +99,7 @@ resource "aws_route_table_association" "hashitalk" {
 }
 
 resource "aws_instance" "hashitalk" {
-  ami                         = var.AMI
+  ami                         = data.hcp_packer_image.apache-image.cloud_image_id
   instance_type               = var.instance_type
   associate_public_ip_address = true
   subnet_id                   = aws_subnet.hashitalk.id
@@ -97,4 +113,16 @@ resource "aws_instance" "hashitalk" {
 output "WebService" {
   description = "Public IP adress of your EC2 instance"
   value       = aws_instance.hashitalk.public_ip
+}
+
+output "apache-production-image-id" {
+  value = data.hcp_packer_image.apache-image.cloud_image_id
+}
+
+output "apache-fingerprint-version" {
+  value = data.hcp_packer_iteration.apache.fingerprint
+}
+
+output "apache-production-active-image" {
+  value = data.hcp_packer_iteration.apache.ulid
 }
