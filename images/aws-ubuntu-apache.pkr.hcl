@@ -48,6 +48,7 @@ build {
         EOT
     labels = {
       "target-use" = "webservice",
+      "environment" = "dev/test",
     }
   }
 
