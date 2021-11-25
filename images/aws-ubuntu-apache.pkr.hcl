@@ -28,7 +28,7 @@ source "amazon-ebs" "eu-central-1" {
 
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"
+      name                = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -53,11 +53,12 @@ build {
   hcp_packer_registry {
     bucket_name = "apache"
     description = <<EOT
-    This image is a Apache Web Service running on ubuntu 18.04
+    This image is a Apache Web Service running on ubuntu 20.04
         EOT
     labels = {
       "target-use" = "Website",
-      "os"         = "ubuntu_1804",
+      "service"    = "apache_server",
+      "os"         = "ubuntu_latest_version",
     }
   }
 
