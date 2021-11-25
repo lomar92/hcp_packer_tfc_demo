@@ -10,7 +10,7 @@ packer {
 
 variable "ami_prefix" {
   type    = string
-  default = "WebService_Apache"
+  default = "apache_v2"
 }
 
 variable "region" {
