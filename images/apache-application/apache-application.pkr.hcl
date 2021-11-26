@@ -1,3 +1,6 @@
+#This Code Config query a specific base image's build iteration and build a new image using that base image. 
+#Then, you will update the base image's channel to point to another iteration, and rebuild the downstream image on top of the new base image. 
+
 packer {
   required_plugins {
     amazon = {
@@ -17,28 +20,30 @@ variable "region" {
   default = "eu-central-1"
 }
 
-#Variable for your AMI-Name -> AMI-Name are unique!
+#Put this local Variable for your AMI-Name to make it unique -> AMI-Name are always unique in AWS!
 locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 }
 
+data "hcp-packer-iteration" "apache" {
+  bucket_name = "apache"
+  channel     = "production"
+}
+
+data "hcp-packer-image" "apache-image" {
+  bucket_name    = "apache"
+  iteration_id   = data.hcp-packer-iteration.apache.id
+  cloud_provider = "aws"
+  region         = "eu-central-1"
+}
 
 source "amazon-ebs" "eu-central-1" {
   ami_name      = "${var.ami_prefix}-${local.timestamp}"
+  source_ami    = data.hcp-packer-image.apache-image.id
   instance_type = "t2.micro"
   region        = var.region
+  ssh_username  = "ubuntu"
 
-  source_ami_filter {
-    filters = {
-      name                = "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"
-      root-device-type    = "ebs"
-      virtualization-type = "hvm"
-    }
-    most_recent = true
-    owners      = ["099720109477"]
-  }
-  ssh_username = "ubuntu"
-  
   tags = {
     Name = "lomar"
   }
@@ -63,24 +68,5 @@ build {
       "service"    = "apache_server",
       "os"         = "ubuntu_latest_version",
     }
-  }
-
-  provisioner "shell" {
-    inline = [
-      "sudo apt -y update",
-      "sleep 15",
-      "sudo apt -y update",
-      "sudo apt -y install apache2",
-      "sudo systemctl start apache2",
-      "sudo chown -R ubuntu:ubuntu /var/www/html",
-      "sudo apt -y install cowsay",
-      "cowsay -f tux Look after your Apache version!",
-      "apache2 -v"
-    ]
-  }
-
-  provisioner "file" {
-    source      = "file/"
-    destination = "/var/www/html"
   }
 }

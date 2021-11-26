@@ -13,7 +13,7 @@ variable "bucket" {
 
 variable "channel" {
   description = "HCP Packer Channel"
-  default     = "production"
+  default     = "development"
 }
 
 variable "region" {

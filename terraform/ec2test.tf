@@ -115,7 +115,7 @@ output "WebService" {
   value       = aws_instance.hashitalk.public_ip
 }
 
-output "apache-production-image-id" {
+output "apache-image-id" {
   value = data.hcp_packer_image.apache-image.cloud_image_id
 }
 
@@ -123,6 +123,6 @@ output "apache-fingerprint-version" {
   value = data.hcp_packer_iteration.apache.fingerprint
 }
 
-output "apache-production-active-image" {
+output "apache-active-image" {
   value = data.hcp_packer_iteration.apache.ulid
 }
