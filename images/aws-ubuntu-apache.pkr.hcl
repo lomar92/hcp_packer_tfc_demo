@@ -53,7 +53,6 @@ build {
     "source.amazon-ebs.eu-central-1"
   ]
 
-
 #  hcp_packer_registry {
 #    bucket_name = "apache"
 #    description = <<EOT
