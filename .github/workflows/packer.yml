@@ -17,7 +17,7 @@ jobs:
         with:
           command: validate
           arguments: -syntax-only
-          target: aws-ubuntu-apache.pkr.hcl
+          target: images/aws-ubuntu-apache.pkr.hcl
 
       # build artifact
       - name: Build Golden Image
@@ -25,7 +25,7 @@ jobs:
         with:
           command: build
           arguments: "-color=false -on-error=abort"
-          target: aws-ubuntu-apache.pkr.hcl
+          target: images/aws-ubuntu-apache.pkr.hcl
         env:
           PACKER_LOG: 1
 
