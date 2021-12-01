@@ -35,6 +35,7 @@ jobs:
         uses: hashicorp/packer-github-actions@master
         with:
           command: fix
+          target: images/aws-ubuntu-apache.pkr.hcl
 
       # validate templates
       - name: Validate Template
