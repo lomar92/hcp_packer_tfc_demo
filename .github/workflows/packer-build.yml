@@ -1,0 +1,20 @@
+name: Run packer build on a template file
+
+on:
+  push:
+    branches:
+        - 'master'
+jobs:
+  packer_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Packer build
+        uses: ExitoLab/packer_build_action_aws@v0.2.10
+        with:
+          templateFile: aws-ubuntu-apache.pkr.hcl
+          workingDir: images
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         
