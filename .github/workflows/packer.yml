@@ -1,11 +1,7 @@
-- name: Packer GitHub Actions
-  uses: hashicorp/packer-github-actions@v0.2.0
-
 name: Packer
-
 on:
   push:
-
+      
 jobs:
   packer:
     runs-on: ubuntu-latest
