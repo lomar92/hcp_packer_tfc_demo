@@ -18,6 +18,14 @@ jobs:
           command: validate
           arguments: -syntax-only
           target: images/aws-ubuntu-apache.pkr.hcl
+      
+      # init packer
+      - name: Initialize Packer
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: init
+          arguments: -syntax-only
+          target: images/aws-ubuntu-apache.pkr.hcl
 
       # build artifact
       - name: Build Golden Image
