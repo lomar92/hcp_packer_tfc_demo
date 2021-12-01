@@ -28,6 +28,7 @@ jobs:
         uses: hashicorp/packer-github-actions@master
         with:
           command: init
+          target: images/aws-ubuntu-apache.pkr.hcl
 
       # fix backwards incompatibilities in template
       - name: Fix Template
