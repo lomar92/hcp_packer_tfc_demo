@@ -11,14 +11,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      # validate Packer
-      - name: Validate Template
-        uses: hashicorp/packer-github-actions@master
-        with:
-          command: validate
-          arguments: -syntax-only
-          target: images/aws-ubuntu-apache.pkr.hcl
-
       # Initiliaze Packer
       - name: Init Template
         uses: hashicorp/packer-github-actions@master
@@ -26,7 +18,15 @@ jobs:
           command: init
           arguments: -syntax-only
           target: images/aws-ubuntu-apache.pkr.hcl
-          
+                  
+      # validate Packer
+      - name: Validate Template
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: validate
+          arguments: -syntax-only
+          target: images/aws-ubuntu-apache.pkr.hcl
+         
       # build artifact
       - name: Build Golden Image
         uses: hashicorp/packer-github-actions@master
