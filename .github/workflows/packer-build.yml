@@ -8,7 +8,7 @@ on:
 jobs:
   packer:
     runs-on: ubuntu-latest
-    name: hashicorp/packer:latest
+    name: packer
 
     steps:
       - name: Checkout Repository

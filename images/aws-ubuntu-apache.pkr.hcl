@@ -38,7 +38,7 @@ source "amazon-ebs" "eu-central-1" {
     owners      = ["099720109477"]
   }
   ssh_username = "ubuntu"
-  
+
   tags = {
     Name = "lomar"
   }
@@ -53,17 +53,17 @@ build {
     "source.amazon-ebs.eu-central-1"
   ]
 
-#  hcp_packer_registry {
-#    bucket_name = "apache"
-#    description = <<EOT
-#    This image is a Apache Web Service running on ubuntu
-#        EOT
-#    labels = {
-#      "target-use" = "Website",
-#      "service"    = "apache_server",
-#      "os"         = "ubuntu_latest_version",
-#    }
-#  }
+  #  hcp_packer_registry {
+  #    bucket_name = "apache"
+  #    description = <<EOT
+  #    This image is a Apache Web Service running on ubuntu
+  #        EOT
+  #    labels = {
+  #      "target-use" = "Website",
+  #      "service"    = "apache_server",
+  #      "os"         = "ubuntu_latest_version",
+  #    }
+  #  }
 
   provisioner "shell" {
     inline = [
@@ -79,8 +79,8 @@ build {
     ]
   }
 
-  provisioner "file" {
-    source      = "file/"
-    destination = "/var/www/html"
-  }
+  #  provisioner "file" {
+  #    source      = "file/"
+  #    destination = "/var/www/html"
+  #  }
 }
