@@ -1,6 +1,10 @@
 ---
+image: 
+  name: hashicorp/packer:latest
+  entrypoint: 
+    - '/usr/bin/env'
+    - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 
-name: Packer
 
 on:
   push:
@@ -8,7 +12,7 @@ on:
 jobs:
   packer:
     runs-on: ubuntu-latest
-    name: packer
+    name: hashicorp/packer:latest
 
     steps:
       - name: Checkout Repository
