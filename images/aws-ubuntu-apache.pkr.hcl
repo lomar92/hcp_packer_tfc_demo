@@ -56,14 +56,14 @@ build {
   hcp_packer_registry {
     bucket_name = "apache"
     description = <<EOT
-    This image is a Apache Web Service running on ubuntu
-        EOT
+  This image is a Apache Web Service running on ubuntu
+    EOT
     labels = {
       "target-use" = "Website",
       "service"    = "apache_server",
       "os"         = "ubuntu_latest_version",
+      }
     }
-  }
 
   provisioner "shell" {
     inline = [
