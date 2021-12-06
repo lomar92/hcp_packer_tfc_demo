@@ -1,5 +1,5 @@
 # HCP Packer & Terraform Cloud integration
-This is demo, showing how to integrate HCP Packer with Terraform Cloud and how it fit in your CI/CD Pipeline.
+This is demo, showing how to integrate HCP Packer with Terraform Cloud and how it fit in your CI Pipeline using Github Actions
 
 HCP Packer is currently a free beta offering, you can access it on HCP Cloud Platform.
 HCP Packer require packer 1.7.7 or above, please download it from our [releases](https://releases.hashicorp.com/packer/).
