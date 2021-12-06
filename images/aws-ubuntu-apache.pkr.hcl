@@ -1,7 +1,7 @@
 packer {
   required_plugins {
     amazon = {
-      version = ">= 0.0.2"
+      version = ">= 1.0.4"
       source  = "github.com/hashicorp/amazon"
     }
   }
@@ -30,7 +30,7 @@ source "amazon-ebs" "eu-central-1" {
 
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"
+      name                = "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -48,14 +48,16 @@ source "amazon-ebs" "eu-central-1" {
 }
 
 build {
+  name = "hashitalk"
   sources = [
     "source.amazon-ebs.eu-central-1"
   ]
+
   hcp_packer_registry {
-    bucket_name = "apache"
+    bucket_name = "hashitalk"
     description = <<EOT
-This image is a Apache Web Service running on ubuntu
-    EOT
+    This image is a Apache Web Service running on ubuntu
+        EOT
     labels = {
       "target-use" = "Website",
       "service"    = "apache_server",
