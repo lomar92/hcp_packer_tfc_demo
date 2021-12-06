@@ -24,14 +24,14 @@ jobs:
           aws-region: eu-central-1
 
       # Initialize Packer templates
-      - name: Initialize Packer Template
+      - name: Packer HCP Actions
         uses: lomar92/github-actions-packer@v1
         with:
           command: init
           target: images/aws-ubuntu-apache.pkr.hcl
 
       # validate templates
-      - name: Validate Template
+      - name: Packer HCP Actions
         uses: lomar92/github-actions-packer@v1
         with:
           command: validate
@@ -39,7 +39,7 @@ jobs:
           target: images/aws-ubuntu-apache.pkr.hcl
 
       # build artifact
-      - name: Build Artifact
+      - name: Packer HCP Actions
         uses: lomar92/github-actions-packer@v1
         with:
           command: build
