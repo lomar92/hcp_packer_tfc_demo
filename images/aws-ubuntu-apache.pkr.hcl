@@ -80,7 +80,7 @@ build {
   }
 
   provisioner "file" {
-    source      = "/file/"
+    source      = "images/file/"
     destination = "/var/www/html"
   }
 }
