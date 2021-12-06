@@ -29,7 +29,7 @@ jobs:
         with:
           command: init
           target: images/aws-ubuntu-apache.pkr.hcl
-
+                    
       # validate templates
       - name: Validate Template
         uses: lomar92/github-actions-packer@v0.3
@@ -47,5 +47,7 @@ jobs:
           target: images/aws-ubuntu-apache.pkr.hcl
         env:
           PACKER_LOG: 1
+          HCP_CLIENT_ID: 09I7A5cMwwfVhFKBXgHKt3pVje8tq9uS
+          HCP_CLIENT_SECRET: tcm51YcFCcU537hOheGCuggaofpK4T6Gf3-O0T-c8HIl6N-s1yUjSX1L6sM3Hnp0
 
       # additional steps to process artifacts
