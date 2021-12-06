@@ -79,8 +79,8 @@ build {
     ]
   }
 
-  provisioner "file" {
-    source      = "file/"
-    destination = "/var/www/html"
-  }
+  #provisioner "file" {
+  #  source      = "file/"
+  #  destination = "/var/www/html"
+  #}
 }
