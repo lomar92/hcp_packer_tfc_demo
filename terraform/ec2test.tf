@@ -6,16 +6,16 @@ provider "aws" {
 provider "hcp" {
 }
 
-data "hcp_packer_iteration" "apache" {
+data "hcp_packer_iteration" "hashitalk" {
   bucket_name = var.bucket
   channel     = var.channel
 }
 
-data "hcp_packer_image" "apache-image" {
+data "hcp_packer_image" "hashitalk-image" {
   bucket_name    = var.bucket
   cloud_provider = "aws"
   region         = var.region
-  iteration_id   = data.hcp_packer_iteration.apache.ulid
+  iteration_id   = data.hcp_packer_iteration.hashitalk.ulid
 }
 
 resource "aws_vpc" "hashitalk" {
@@ -99,7 +99,7 @@ resource "aws_route_table_association" "hashitalk" {
 }
 
 resource "aws_instance" "hashitalk" {
-  ami                         = data.hcp_packer_image.apache-image.cloud_image_id
+  ami                         = data.hcp_packer_image.hashitalk-image.cloud_image_id
   instance_type               = var.instance_type
   associate_public_ip_address = true
   subnet_id                   = aws_subnet.hashitalk.id
@@ -115,14 +115,14 @@ output "WebService" {
   value       = aws_instance.hashitalk.public_ip
 }
 
-output "apache-image-id" {
-  value = data.hcp_packer_image.apache-image.cloud_image_id
+output "hashitalk-image-id" {
+  value = data.hcp_packer_image.hashitalk-image.cloud_image_id
 }
 
-output "apache-fingerprint-version" {
-  value = data.hcp_packer_iteration.apache.fingerprint
+output "hashitalk-fingerprint-version" {
+  value = data.hcp_packer_iteration.hashitalk.fingerprint
 }
 
-output "apache-active-image" {
-  value = data.hcp_packer_iteration.apache.ulid
+output "hashitalk-active-image" {
+  value = data.hcp_packer_iteration.hashitalk.ulid
 }
