@@ -17,14 +17,8 @@ variable "region" {
   default = "eu-central-1"
 }
 
-#Variable for your AMI-Name -> AMI-Name are unique!
-locals {
-  timestamp = regex_replace(timestamp(), "[- TZ:]", "")
-}
-
-
 source "amazon-ebs" "eu-central-1" {
-  ami_name      = "${var.ami_prefix}-${local.timestamp}"
+  ami_name      = "${var.ami_prefix}-${legacy_isotime("2006-01-02")}"
   instance_type = "t2.micro"
   region        = var.region
 
@@ -80,7 +74,7 @@ build {
   }
 
   provisioner "file" {
-    source      = "images/file/"
+    source      = "file/"
     destination = "/var/www/html"
   }
 }
