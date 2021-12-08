@@ -6,18 +6,6 @@ provider "aws" {
 provider "hcp" {
 }
 
-data "hcp_packer_iteration" "hashitalk" {
-  bucket_name = var.bucket
-  channel     = var.channel
-}
-
-data "hcp_packer_image" "hashitalk-image" {
-  bucket_name    = var.bucket
-  cloud_provider = "aws"
-  region         = var.region
-  iteration_id   = data.hcp_packer_iteration.hashitalk.ulid
-}
-
 resource "aws_vpc" "hashitalk" {
   cidr_block           = var.address_space
   enable_dns_hostnames = true
@@ -98,6 +86,17 @@ resource "aws_route_table_association" "hashitalk" {
   route_table_id = aws_route_table.hashitalk.id
 }
 
+data "hcp_packer_iteration" "hashitalk" {
+  bucket_name = var.bucket
+  channel     = var.channel
+}
+
+data "hcp_packer_image" "hashitalk-image" {
+  bucket_name    = var.bucket
+  iteration_id   = data.hcp_packer_iteration.hashitalk.ulid
+  cloud_provider = "aws"
+  region         = var.region
+}
 resource "aws_instance" "hashitalk" {
   ami                         = data.hcp_packer_image.hashitalk-image.cloud_image_id
   instance_type               = var.instance_type
