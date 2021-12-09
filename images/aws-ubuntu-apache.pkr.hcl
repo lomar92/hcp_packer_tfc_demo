@@ -74,7 +74,7 @@ build {
   }
 
   provisioner "file" {
-    source      = "/images/file/"
+    source      = "images/file/"
     destination = "/var/www/html"
   }
 }
