@@ -24,7 +24,7 @@ source "amazon-ebs" "eu-central-1" {
 
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"
+      name                = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -74,7 +74,7 @@ build {
   }
 
   provisioner "file" {
-    source      = "images/file/"
+    source      = "file/"
     destination = "/var/www/html"
   }
 }
