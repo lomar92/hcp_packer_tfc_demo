@@ -48,7 +48,7 @@ build {
   ]
 
   hcp_packer_registry {
-    bucket_name = "hashitalk21"
+    bucket_name = "hashitalk"
     description = <<EOT
     This image is a Apache Web Service running on ubuntu
         EOT
