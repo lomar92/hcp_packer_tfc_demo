@@ -3,17 +3,14 @@
 
 variable "environment" {
   description = "This prefix will be included in the name of most resources. Prod, Test/Dev"
-  default = "prod"
 }
 
 variable "bucket" {
   description = "Put your HCP Packer Bucket in TFC"
-  default = "hashitalk"
 }
 
 variable "channel" {
   description = "HCP Packer Channel"
-  default = "Production"
 }
 
 variable "region" {
