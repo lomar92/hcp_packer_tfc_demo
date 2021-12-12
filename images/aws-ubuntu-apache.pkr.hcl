@@ -42,7 +42,7 @@ source "amazon-ebs" "eu-central-1" {
 }
 
 build {
-  name = "hashitalk2021"
+  name = "hashitalk"
   sources = [
     "source.amazon-ebs.eu-central-1"
   ]
