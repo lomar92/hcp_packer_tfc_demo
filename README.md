@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # HCP Packer & Terraform Cloud Integration
 
 This is demo is showing how to integrate HCP Packer with Terraform Cloud and how Packer & HCP Packer can fit in your CI Golden Image Pipeline using Github Actions.
