@@ -36,8 +36,6 @@ Second part is we are using our newly created image and deploy our infrastructur
 
 6. Fork or clone this Repository! 
 
-Some projects require initial configuration (e.g. access tokens or keys, `npm i`).
-This is the section where you would document those requirements.
 
 ## Download Repo
 
