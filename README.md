@@ -2,10 +2,6 @@
 # HCP Packer & Terraform Cloud Integration
 
 This is demo is showing how to integrate HCP Packer with Terraform Cloud and how Packer & HCP Packer can fit in your CI Golden Image Pipeline using Github Actions.
-=======
-# HCP Packer & Terraform Cloud integration --> Details for ReadMe tbd!
-This is demo, showing how to integrate HCP Packer with Terraform Cloud and how Packer & HCP Packer can fit in your CI Golden Image Pipeline using Github Actions.
->>>>>>> refs/remotes/origin/master
 
 HCP Packer is currently a free beta offering, you can access it on HCP Cloud Platform.
 HCP Packer require packer 1.7.7 or above, please download it from our [releases](https://releases.hashicorp.com/packer/).
@@ -30,10 +26,10 @@ Second part is we are using our newly created image and deploy our infrastructur
 
 4. Create Service Principals under your IAM Seetings. Assign a Role and generate new secrets. Set your ENV Var under Secrets in your GitHub Repo Settings. You will need AWS credentials as well to trigger GitHub Actions for Packer. 
 
-HCP_CLIENT_ID: `your CLIENT_ID` 
-HCP_CLIENT_SECRET: `your CLIENT SECRET` 
-AWS_SECRET_KEY: `your CLIENT SECRET`
-AWS_SECRET_ACCESS_KEY; `your CLIENT SECRET`
+- HCP_CLIENT_ID: `your CLIENT_ID` 
+- HCP_CLIENT_SECRET: `your CLIENT SECRET` 
+- AWS_SECRET_KEY: `your AWS SECRET KEY`
+- AWS_SECRET_ACCESS_KEY; `your AWS SECRET KEY`
 
 4. [Create Terraform Cloud Account](https://app.terraform.io/session)
 
@@ -129,13 +125,9 @@ Normally you would copy and paste your newly created AMI in your ressource block
 
 Usefull links for your own Golden Image CI Pipeline.
 
-<<<<<<< HEAD
 - GitHub Action Templates: [Packer Action Template](https://github.com/lomar92/github-actions-packer)
 - Blog:[How to securely build and deploy with Vault and dynamic credentials](https://medium.com/hashicorp-engineering/a-moving-window-of-trust-dfcda514af58)
 - [Learn Packer](https://learn.hashicorp.com/collections/packer/hcp-get-started)
 - [Vault OIDC Integration:](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault)
 - [HCP Packer Golden Image in Production](https://learn.hashicorp.com/tutorials/packer/golden-image-with-hcp-packer?in=packer/cloud-production)
 =======
-
-# Prerequisites!
->>>>>>> refs/remotes/origin/master
