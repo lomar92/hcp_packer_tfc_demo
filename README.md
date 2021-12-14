@@ -57,6 +57,7 @@ nano aws-ubuntu-apache.pkr.hcl
 ```
 In aws-ubuntu-apache.pkr.hcl you will see a building block hcp_registry. This source in your building block will create a bucket with an iteration. Following additional creations, new images will be created under a new version of it and it will be listed in your respository.
 
+```
   hcp_packer_registry {
     bucket_name = "hashitalk"
     description = <<EOT
@@ -68,6 +69,7 @@ In aws-ubuntu-apache.pkr.hcl you will see a building block hcp_registry. This so
       "os"         = "ubuntu_latest_version",
     }
   }
+```
 
 Check HCP Packer Docs for more Information. 
 
@@ -99,24 +101,30 @@ Specify HCP Provider and HCP Packer Iteration so you can use the API of HCP Pack
 This is already done, just in case if you want to integrate HCP packer in other terraform configs.
 
 #### HCP Data Block 
+```r
 data "hcp_packer_iteration" "hashitalk" {
   bucket_name = var.bucket
   channel     = var.channel
 }
+```
 
+```r
 data "hcp_packer_image" "hashitalk-image" {
   bucket_name    = var.bucket
   iteration_id   = data.hcp_packer_iteration.hashitalk.ulid
   cloud_provider = "aws"
   region         = var.region
 }
-
+```
+```r
 resource "aws_instance" "hashitalk" {
   ami                         = data.hcp_packer_image.hashitalk-image.cloud_image_id
   instance_type               = var.instance_type
   associate_public_ip_address = true
   subnet_id                   = aws_subnet.hashitalk.id
   vpc_security_group_ids      = [aws_security_group.hashitalk.id]
+}
+```
 
 Normally you would copy and paste your newly created AMI in your ressource block for creating an ec2 instance. You don't have to do it anymore, as terraform understands to pull the newly created AMI from a specific channel where you assigend your interation earlier.
 
