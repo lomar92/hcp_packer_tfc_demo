@@ -57,7 +57,7 @@ nano aws-ubuntu-apache.pkr.hcl
 ```
 In aws-ubuntu-apache.pkr.hcl you will see a building block hcp_registry. This source in your building block will create a bucket with an iteration. Following additional creations, new images will be created under a new version of it and it will be listed in your respository.
 
-```
+```r
   hcp_packer_registry {
     bucket_name = "hashitalk"
     description = <<EOT
@@ -138,4 +138,3 @@ Usefull links for your own Golden Image CI Pipeline.
 - [Learn Packer](https://learn.hashicorp.com/collections/packer/hcp-get-started)
 - [Vault OIDC Integration:](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault)
 - [HCP Packer Golden Image in Production](https://learn.hashicorp.com/tutorials/packer/golden-image-with-hcp-packer?in=packer/cloud-production)
-=======
