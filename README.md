@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 # HCP Packer & Terraform Cloud Integration
 
 This is demo is showing how to integrate HCP Packer with Terraform Cloud and how Packer & HCP Packer can fit in your CI Golden Image Pipeline using Github Actions.
+=======
+# HCP Packer & Terraform Cloud integration --> Details for ReadMe tbd!
+This is demo, showing how to integrate HCP Packer with Terraform Cloud and how Packer & HCP Packer can fit in your CI Golden Image Pipeline using Github Actions.
+>>>>>>> refs/remotes/origin/master
 
 HCP Packer is currently a free beta offering, you can access it on HCP Cloud Platform.
 HCP Packer require packer 1.7.7 or above, please download it from our [releases](https://releases.hashicorp.com/packer/).
@@ -124,8 +129,13 @@ Normally you would copy and paste your newly created AMI in your ressource block
 
 Usefull links for your own Golden Image CI Pipeline.
 
+<<<<<<< HEAD
 - GitHub Action Templates: [Packer Action Template](https://github.com/lomar92/github-actions-packer)
 - Blog:[How to securely build and deploy with Vault and dynamic credentials](https://medium.com/hashicorp-engineering/a-moving-window-of-trust-dfcda514af58)
 - [Learn Packer](https://learn.hashicorp.com/collections/packer/hcp-get-started)
 - [Vault OIDC Integration:](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault)
 - [HCP Packer Golden Image in Production](https://learn.hashicorp.com/tutorials/packer/golden-image-with-hcp-packer?in=packer/cloud-production)
+=======
+
+# Prerequisites!
+>>>>>>> refs/remotes/origin/master
