@@ -110,7 +110,7 @@ resource "aws_instance" "hashitalk" {
 }
 
 output "WebService" {
-  description = "Public IP adress of your EC2 instance"
+  description = "Public IP of your EC2 instance"
   value       = aws_instance.hashitalk.public_ip
 }
 
