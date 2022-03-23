@@ -25,14 +25,16 @@ jobs:
 
       # Initialize Packer templates
       - name: Initialize Packer Template
-        uses: lomar92/github-actions-packer@v0.3
+        uses: lomar92/github-actions-packer@v1.8.0
+
         with:
           command: init
           target: images/aws-ubuntu-apache.pkr.hcl
                     
       # validate templates
       - name: Validate Template
-        uses: lomar92/github-actions-packer@v0.3
+        uses: lomar92/github-actions-packer@v1.8.0
+
         with:
           command: validate
           arguments: -syntax-only
@@ -40,7 +42,8 @@ jobs:
 
       # build artifact
       - name: Build Artifact
-        uses: lomar92/github-actions-packer@v0.3
+        uses: lomar92/github-actions-packer@v1.8.0
+
         with:
           command: build
           arguments: "-color=false -on-error=abort"
