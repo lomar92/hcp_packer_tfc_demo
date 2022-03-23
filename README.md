@@ -60,10 +60,15 @@ In aws-ubuntu-apache.pkr.hcl you will see a building block hcp_registry. This so
     description = <<EOT
     This image is a Apache Web Service running on ubuntu
         EOT
-    labels = {
+
+    bucket_labels = {
       "target-use" = "Website",
       "service"    = "apache_server",
-      "os"         = "ubuntu_latest_version",
+    }
+
+    build_labels = {
+      "os"   = "Ubuntu Hirsute"
+      "version" = "21.04"
     }
   }
 ```
