@@ -3,7 +3,7 @@
 This is demo is showing how to integrate HCP Packer with Terraform Cloud and how Packer & HCP Packer can fit in your CI Golden Image Pipeline using Github Actions.
 
 HCP Packer is currently a free beta offering, you can access it on HCP Cloud Platform.
-HCP Packer require packer 1.7.7 or above, please download it from our [releases](https://releases.hashicorp.com/packer/).
+HCP Packer require packer 1.7.7 or above, please download it from our [releases](https://releases.hashicorp.com/packer/). I recommend to update your packer binary for future feature releases.
 For further details consult our [Learning Guide](https://learn.hashicorp.com/tutorials/packer/hcp-push-image-metadata?in=packer/hcp-get-started).
 
 # What is HCP Packer?
@@ -125,6 +125,9 @@ resource "aws_instance" "hashitalk" {
 
 Normally you would copy and paste your newly created AMI in your ressource block for creating an ec2 instance. You don't have to do it anymore, as terraform understands to pull the newly created AMI from a specific channel where you assigend your interation earlier.
 
+## Terraform Working Directory
+Please make sure, if you clone/fork this repo and connect with Terraform Cloud that your terraform directory is specified as a relative path in your workspace settings. --> Settings --> General Settings --> working directoy
+[Terraform Working Directory](https://www.terraform.io/cloud-docs/workspaces/settings#terraform-working-directory)
 
 ## Links
 
