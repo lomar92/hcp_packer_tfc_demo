@@ -29,7 +29,7 @@ source "amazon-ebs" "eu-central-1" {
 
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"
+      name                = "ubuntu/images/hvm-ssd/ubuntu-hirsute-21.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -57,12 +57,16 @@ build {
     description = <<EOT
     This image is a Apache Web Service running on ubuntu
         EOT
-    labels = {
+
+    bucket_labels = {
       "target-use" = "Website",
       "service"    = "apache_server",
-      "os"         = "ubuntu_latest_version",
     }
-  }
+
+    build_labels = {
+      "os"   = "ubuntu hirsute"
+      "version" = "21.04"
+    }
 
   provisioner "shell" {
     inline = [
