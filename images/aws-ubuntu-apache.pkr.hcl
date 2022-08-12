@@ -1,7 +1,7 @@
 packer {
   required_plugins {
     amazon = {
-      version = ">= 1.0.4"
+      version = ">= 1.1.2"
       source  = "github.com/hashicorp/amazon"
     }
   }
@@ -29,7 +29,7 @@ source "amazon-ebs" "eu-central-1" {
 
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/hvm-ssd/ubuntu-hirsute-21.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -67,6 +67,7 @@ build {
       "os"   = "ubuntu hirsute"
       "version" = "21.04"
     }
+  }
 
   provisioner "shell" {
     inline = [
@@ -83,7 +84,7 @@ build {
   }
 
   provisioner "file" {
-    source      = "images/file/"
+    source      = "file/"
     destination = "/var/www/html"
   }
 }
