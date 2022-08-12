@@ -64,8 +64,8 @@ build {
     }
 
     build_labels = {
-      "os"   = "ubuntu hirsute"
-      "version" = "21.04"
+      "os"   = "ubuntu xenial"
+      "version" = "16.04"
     }
   }
 
